@@ -1,10 +1,10 @@
 #! /bin/bash
 
-## makes sure process is only run once
+## makes sure process is only run once by killing the old process
 for pid in $(pidof -x "wallpaper.sh"); do
     if [ $pid != $$ ]; then
         echo "process already running"
-        exit 0
+        kill -9 $pid
     fi;
 done
 
@@ -15,6 +15,11 @@ count=$(ls -1q Pictures/wallpaper | wc -l)
 echo $count
 random1=$(($RANDOM % count))
 random2=$(($RANDOM % count))
+
+while [ $random1 -eq $random2 ]; do
+    #make sure backgrounds are different
+    random2=$(($RANDOM % count))
+done
 
 while true :
 do
