@@ -1,5 +1,14 @@
 #! /bin/bash
 
+## makes sure process is only run once
+for pid in $(pidof -x "wallpaper.sh"); do
+    if [ $pid != $$ ]; then
+        echo "process already running"
+        exit 0
+    fi;
+done
+
+
 sleep 15
 #determine the max photos in folder
 count=$(ls -1q Pictures/wallpaper | wc -l)
