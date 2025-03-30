@@ -9,3 +9,4 @@ while true :
   echo "speedtest complete"
   sleep 600
   done
+
