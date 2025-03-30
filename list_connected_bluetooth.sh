@@ -23,9 +23,6 @@ done
 
 cd ~/shell
 
-
-
-        
 while true 
 do 
     #if no bluetotth file exits, create it
